@@ -1,8 +1,6 @@
-from array import array
-
 from additional_functions import is_int, input_large_number, generate_random_number
 
-def input_two_mas(array1, array2):
+"""def input_two_mas(array1, array2):
     print("Выберите опцию 1-2:\n"
           "1. Ввести массивы самостоятельно\n"
           "2. Сгенерировать массивы случайным образом\n")
@@ -23,9 +21,26 @@ def input_two_mas(array1, array2):
         print('error')
     print("Первый массив цифр:", array1)
     print("Второй массив цифр:", array2)
-    return True  # Возвращаем True, чтобы указать, что текст был введен
+    return True  # Возвращаем True, чтобы указать, что текст был введен"""
+
+def sum_or_difference_arrays():
+    array1 = [1, 2, 3, 4]
+    array2 = [5, 6, 7, 8]
+    print("Выберите находить сумму или разность массивов:\n"
+          "1. Сумму\n"
+          "2. Разность")
+    sum_or_difference = input()
+    if is_int(sum_or_difference):
+        sum_or_difference = int(sum_or_difference)
+    if sum_or_difference == 1:
+        sum1 = sum(number for number in array1)
+        sum2 = sum(number for number in array2)
+        return sum1+sum2
+    if sum_or_difference == 2:
+        sum1 = sum(number for number in array1)
+        sum2 = sum(number for number in array2)
+        return sum1-sum2
 
 if __name__ == "__main__":
-    array1 = []
-    array2 = []
-    input_two_mas(array1, array2)
+    result = sum_or_difference_arrays()
+    print(result)
