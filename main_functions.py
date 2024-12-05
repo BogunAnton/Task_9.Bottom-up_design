@@ -62,10 +62,19 @@ def input_two_numbers_mas(array1, array2):
     print("Второй массив:", array2)
     return True  # Возвращаем True, чтобы указать, что текст был введен
 
-
+def count_total_numbers():
+    array1 = [11, 65, 23]
+    array2 = [11, 56, 32]
+    result = 0
+    for i in array1:
+        for j in array2:
+            if i == j or str(i)[::-1] == str(j):
+                result += 1
+    return result
 
 if __name__ == "__main__":
     array1 = []
     array2 = []
-    input_two_numbers_mas(array1, array2)
+    result = input_two_numbers_mas(array1, array2)
+    print(result)
 
