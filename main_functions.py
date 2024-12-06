@@ -1,7 +1,13 @@
+"""
+Файл с основными функциями для выполнения задач.
+"""
+
 from additional_functions import *
-"""import numpy as np"""
 
 def input_two_mas(array1, array2):
+    """
+    Функция для ввода двух массивов, представляющих большие числа.
+    """
     print("Выберите опцию 1-2:\n"
           "1. Ввести массивы самостоятельно\n"
           "2. Сгенерировать массивы случайным образом\n")
@@ -22,9 +28,12 @@ def input_two_mas(array1, array2):
         print('error')
     print("Первый массив цифр:", array1)
     print("Второй массив цифр:", array2)
-    return array1, array2  # Возвращаем True, чтобы указать, что текст был введен
+    return array1, array2  # Возвращаем массивы
 
 def sum_or_difference_arrays(array1, array2):
+    """
+    Функция для вычисления суммы или разности двух массивов.
+    """
     print("Выберите находить сумму или разность массивов:\n"
           "1. Сумму\n"
           "2. Разность")
@@ -34,13 +43,16 @@ def sum_or_difference_arrays(array1, array2):
     if sum_or_difference == 1:
         sum1 = sum(number for number in array1)
         sum2 = sum(number for number in array2)
-        return sum1+sum2
+        return sum1 + sum2
     if sum_or_difference == 2:
         sum1 = sum(number for number in array1)
         sum2 = sum(number for number in array2)
-        return sum1-sum2
+        return sum1 - sum2
 
 def input_two_numbers_mas(array1, array2):
+    """
+    Функция для ввода двух массивов чисел.
+    """
     print("Выберите опцию 1-2:\n"
           "1. Ввести массивы самостоятельно\n"
           "2. Сгенерировать массивы случайным образом\n")
@@ -48,10 +60,11 @@ def input_two_numbers_mas(array1, array2):
     if is_int(option):
         option = int(option)
     if option == 1:
+        # Самостоятельный ввод двух числовых массивов
         array1 = input_number_array()
         array2 = input_number_array()
     elif option == 2:
-        # Генерация двух больших чисел случайным образом
+        # Генерация двух числовых массивов случайным образом
         length1 = int(input("Введите количество цифр в случайном массиве: "))
         array1 = generate_random_array(length1)
         length2 = int(input("Введите количество цифр в случайном массиве: "))
@@ -63,6 +76,9 @@ def input_two_numbers_mas(array1, array2):
     return array1, array2  # Возвращаем True, чтобы указать, что текст был введен
 
 def count_total_numbers(array1, array2):
+    """
+    Функция для подсчета количества общих чисел в двух массивах, включая перевернутые версии.
+    """
     result = 0
     for i in array1:
         for j in array2:
@@ -71,7 +87,9 @@ def count_total_numbers(array1, array2):
     return result
 
 def get_matrix():
-    # Запрос у пользователя, хочет ли он ввести матрицу вручную или сгенерировать её случайным образом
+    """
+    Функция для ввода матрицы или генерации случайной матрицы.
+    """
     print("Выберите опцию 1-2:\n"
           "1. Ввести матрицу самостоятельно\n"
           "2. Сгенерировать матрицу случайным образом\n")
@@ -93,6 +111,9 @@ def get_matrix():
         print("error")
 
 def rotation_matrix(matrix):
+    """
+    Функция для поворота матрицы на 90 градусов против часовой стрелки.
+    """
     transposed_matrix = transpose_list_comprehension(matrix)
     rotated_matrix = []
     for row in transposed_matrix[::-1]:
