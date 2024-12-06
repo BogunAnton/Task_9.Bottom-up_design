@@ -65,3 +65,6 @@ def generate_random_matrix():
     # Генерация случайной матрицы
     matrix = [[random.randint(1, 100) for _ in range(n)] for _ in range(m)]
     return matrix
+
+def transpose_list_comprehension(matrix):
+    return [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]

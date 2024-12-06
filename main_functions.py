@@ -1,4 +1,5 @@
 from additional_functions import *
+"""import numpy as np"""
 
 def input_two_mas(array1, array2):
     print("Выберите опцию 1-2:\n"
@@ -88,8 +89,17 @@ def get_matrix():
     else:
         print("error")
 
+def rotation_matrix():
+    matrix = [[1, 2], [3, 4]]# Транспонировать матрицу
+    transposed_matrix = transpose_list_comprehension(matrix)
+    # Перевернуть столбцы
+    rotated_matrix = []
+    for row in transposed_matrix[::-1]:
+        rotated_matrix.append(row)
+    return rotated_matrix
+
 if __name__ == "__main__":
-    result = get_matrix()
+    result = rotation_matrix()
     for row in result:
         print(row)
 
