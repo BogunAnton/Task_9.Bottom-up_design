@@ -40,3 +40,28 @@ def generate_random_array(length):
     # Генерация случайного массива чисел от 1 до 100 заданной длины
     number_array = [random.randint(1, 100) for _ in range(length)]
     return number_array
+
+def input_matrix():
+    # Ввод размеров матрицы
+    m = int(input("Введите количество строк (m): "))
+    n = int(input("Введите количество столбцов (n): "))
+    # Ввод матрицы
+    matrix = []
+    print("Введите элементы матрицы по строкам (разделенные пробелами):\n"
+          "В каждой строке должно быть по", n, "элементов")
+    for i in range(m):
+        while True:
+            row = list(map(int, input(f"Строка {i+1}: ").split()))
+            if len(row) == n:
+                matrix.append(row)
+                break
+            else:
+                print(f"Ошибка: Введено неверное количество элементов в строке {i+1}. Пожалуйста, введите {n} элементов.")
+    return matrix
+
+def generate_random_matrix():
+    m = random.randint(1, 10)
+    n = random.randint(1, 10)
+    # Генерация случайной матрицы
+    matrix = [[random.randint(1, 100) for _ in range(n)] for _ in range(m)]
+    return matrix

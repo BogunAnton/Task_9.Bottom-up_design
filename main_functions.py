@@ -62,9 +62,7 @@ def input_two_numbers_mas(array1, array2):
     print("Второй массив:", array2)
     return True  # Возвращаем True, чтобы указать, что текст был введен
 
-def count_total_numbers():
-    array1 = [11, 65, 23]
-    array2 = [11, 56, 32]
+def count_total_numbers(array1, array2):
     result = 0
     for i in array1:
         for j in array2:
@@ -72,9 +70,26 @@ def count_total_numbers():
                 result += 1
     return result
 
+def get_matrix():
+    # Запрос у пользователя, хочет ли он ввести матрицу вручную или сгенерировать её случайным образом
+    print("Выберите опцию 1-2:\n"
+          "1. Ввести матрицу самостоятельно\n"
+          "2. Сгенерировать матрицу случайным образом\n")
+    option = input()
+    if is_int(option):
+        option = int(option)
+    if option == 1:
+        # Ввод матрицы вручную
+        matrix = input_matrix()
+        return matrix
+    elif option == 2:
+        matrix = generate_random_matrix()
+        return matrix
+    else:
+        print("error")
+
 if __name__ == "__main__":
-    array1 = []
-    array2 = []
-    result = input_two_numbers_mas(array1, array2)
-    print(result)
+    result = get_matrix()
+    for row in result:
+        print(row)
 
