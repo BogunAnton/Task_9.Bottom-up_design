@@ -22,7 +22,7 @@ def input_two_mas(array1, array2):
         print('error')
     print("Первый массив цифр:", array1)
     print("Второй массив цифр:", array2)
-    return True  # Возвращаем True, чтобы указать, что текст был введен
+    return array1, array2  # Возвращаем True, чтобы указать, что текст был введен
 
 def sum_or_difference_arrays(array1, array2):
     print("Выберите находить сумму или разность массивов:\n"
@@ -48,7 +48,6 @@ def input_two_numbers_mas(array1, array2):
     if is_int(option):
         option = int(option)
     if option == 1:
-        # Ввод двух больших чисел вручную
         array1 = input_number_array()
         array2 = input_number_array()
     elif option == 2:
@@ -61,7 +60,7 @@ def input_two_numbers_mas(array1, array2):
         print('error')
     print("Первый массив:", array1)
     print("Второй массив:", array2)
-    return True  # Возвращаем True, чтобы указать, что текст был введен
+    return array1, array2  # Возвращаем True, чтобы указать, что текст был введен
 
 def count_total_numbers(array1, array2):
     result = 0
@@ -82,24 +81,20 @@ def get_matrix():
     if option == 1:
         # Ввод матрицы вручную
         matrix = input_matrix()
+        print("Начальная матрица:\n")
         return matrix
     elif option == 2:
         matrix = generate_random_matrix()
+        print("Начальная матрица:\n")
+        for row in matrix:
+            print(row)
         return matrix
     else:
         print("error")
 
-def rotation_matrix():
-    matrix = [[1, 2], [3, 4]]# Транспонировать матрицу
+def rotation_matrix(matrix):
     transposed_matrix = transpose_list_comprehension(matrix)
-    # Перевернуть столбцы
     rotated_matrix = []
     for row in transposed_matrix[::-1]:
         rotated_matrix.append(row)
     return rotated_matrix
-
-if __name__ == "__main__":
-    result = rotation_matrix()
-    for row in result:
-        print(row)
-

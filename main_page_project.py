@@ -5,7 +5,16 @@
 а в другом массиве находится его перевернутая версия.
     3.	Входные данные: матрица N на M. Требуется повернуть матрицу на 90
 градусов против часовой или по часовой."""
+
+from main_functions import *
+from additional_functions import is_int
+
 def menu():
+    array1 = []
+    array2 = []
+    matrix = []
+    choice_task = ''
+    final_result = 0
     task_selected = False
     data_entered = False  # Флаг для отслеживания ввода текста
     algorithm_executed = False  # Флаг для отслеживания выполнения алгоритма
@@ -31,21 +40,49 @@ def menu():
             choice_task = input()
             if is_int(choice_task):
                 choice_task = int(choice_task)
+            task_selected = True
         elif choice == 2:
             if task_selected:
-                f1()
-                data_entered = True
+                if choice_task == 1:
+                    array1, array2 = input_two_mas(array1, array2)
+                    data_entered = True
+                elif choice_task == 2:
+                    array1, array2 = input_two_numbers_mas(array1, array2)
+                    data_entered = True
+                elif choice_task == 3:
+                    matrix = get_matrix()
+                    data_entered = True
+                else:
+                    print("error")
             else:
                 print("Сначала выполните пункт 1.")
         elif choice == 3:
             if task_selected and data_entered:
-                f2()
-                algorithm_executed = True
+                if choice_task == 1:
+                    final_result = sum_or_difference_arrays(array1, array2)
+                    algorithm_executed = True
+                if choice_task == 2:
+                    final_result = count_total_numbers(array1, array2)
+                    algorithm_executed = True
+                if choice_task == 3:
+                    matrix = rotation_matrix(matrix)
+                    algorithm_executed = True
+                if algorithm_executed:
+                    print("Алгоритм выполнен")
+                else:
+                    print("error")
             else:
                 print("Сначала выполните пункты 1 и 2.")
         elif choice == 4:
             if task_selected and data_entered and algorithm_executed:
-                f3()
+                if choice_task == 1:
+                    print("Итог выполнения алгоритма:", final_result)
+                if choice_task == 2:
+                    print("Итог выполнения алгоритма:", final_result)
+                if choice_task == 3:
+                    print("Итог выполнения алгоритма:\n")
+                    for row in matrix:
+                        print(row)
             else:
                 print("Сначала выполните пункты 1, 2, 3.")
         elif choice == 0:
